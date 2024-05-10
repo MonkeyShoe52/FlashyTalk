@@ -19,24 +19,24 @@ public class Server {
     public static void main(String[] args) throws Exception {
         // Press Opt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
-        String outMessage= "Hello ";
-        out.println("Creating a socket for talking");
-        ServerSocket mySocket = new ServerSocket(3256);
-        Socket actualSocket = mySocket.accept();
-        ObjectOutputStream objOut = new ObjectOutputStream(out);
-
-        DopeDattta queue = new DopeDattta();
-        DataReader myDataReader = new DataReader(actualSocket, queue);
-        ProgramLogicDoer myProgramLogicDoer = new ProgramLogicDoer(queue);
-
-        Thread dataReadThread = new Thread(myDataReader);
-        Thread programLogicThread = new Thread(myProgramLogicDoer);
-
-        dataReadThread.start();
-        programLogicThread.start();
-
-        objOut.writeObject("Connected");
-
+//        String outMessage= "Hello ";
+//        out.println("Creating a socket for talking");
+//        ServerSocket mySocket = new ServerSocket(3256);
+//        Socket actualSocket = mySocket.accept();
+//        ObjectOutputStream objOut = new ObjectOutputStream(out);
+//
+//        DopeDattta queue = new DopeDattta();
+//        DataReader myDataReader = new DataReader(actualSocket, queue);
+//        ProgramLogicDoer myProgramLogicDoer = new ProgramLogicDoer(queue, this);
+//
+//        Thread dataReadThread = new Thread(myDataReader);
+//        Thread programLogicThread = new Thread(myProgramLogicDoer);
+//
+//        dataReadThread.start();
+//        programLogicThread.start();
+//
+//        objOut.writeObject("Connected");
+//
 
 
     }

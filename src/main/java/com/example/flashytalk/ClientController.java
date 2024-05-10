@@ -28,7 +28,7 @@ public class ClientController {
         ObjectOutputStream objOut = new ObjectOutputStream(out);
         DopeDattta queue = new DopeDattta();
         DataReader myDataReader = new DataReader(actualSocket, queue);
-        ProgramLogicDoer myProgramLogicDoer = new ProgramLogicDoer(queue);
+        ProgramLogicDoer myProgramLogicDoer = new ProgramLogicDoer(queue,this);
         Thread dataReadThread = new Thread(myDataReader);
         Thread programLogicThread = new Thread(myProgramLogicDoer);
         dataReadThread.start();
@@ -36,9 +36,9 @@ public class ClientController {
     }
 
 
-        public void Entertext() throws Exception{
-            String message = Enter().getText();
-            Enter().clear();
+        public void EnterText() throws Exception{
+            String message = Texting.getText();
+            Texting.clear();
             objOut.writeObject(message);
 
 

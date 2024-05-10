@@ -13,12 +13,11 @@ public class ProgramLogicDoer implements Runnable{
     ClientController theController;
     static ArrayList<ObjectOutputStream> manyOuts = new ArrayList<ObjectOutputStream>();
 
-    public ProgramLogicDoer(DopeDattta inData,ObjectOutputStream objOut, ClientController theController, boolean serverMode)  {
+    public ProgramLogicDoer(DopeDattta inData, ClientController theController)  {
         this.inData = inData;
-        this.objOut = objOut;
         manyOuts.add(objOut);
         this.theController = theController;
-        this.serverMode = serverMode;
+
     }
 
 
@@ -29,7 +28,7 @@ public class ProgramLogicDoer implements Runnable{
             if (inMessage1 != null) {
                 if (theController != null) {
                     // add the message to your JavaFX Control that displays many messages
-                    theController.Texting.getItems().add(inMessage1);
+                    theController.Client.getItems().add(inMessage1);
                 } else {
                     System.out.println(inMessage1);
                 }

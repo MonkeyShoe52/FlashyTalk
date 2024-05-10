@@ -6,7 +6,8 @@ import java.net.Socket;
 
 
 public class Client {
-    public static void main(String[] args) throws Exception {
+    ClientController ClientController;
+    public void main(String[] args) throws Exception {
         System.out.println("Connecting to the server");
         Socket newSocket = new Socket("10.37.157.240",3256);
         Socket actualSocket = newSocket;
@@ -17,7 +18,7 @@ public class Client {
 
         DopeDattta queue = new DopeDattta();
         DataReader myDataReader = new DataReader(actualSocket, queue);
-        ProgramLogicDoer myProgramLogicDoer = new ProgramLogicDoer(queue);
+        ProgramLogicDoer myProgramLogicDoer = new ProgramLogicDoer(queue,ClientController);
 
         Thread dataReadThread = new Thread(myDataReader);
         Thread programLogicThread = new Thread(myProgramLogicDoer);
